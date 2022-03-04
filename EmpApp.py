@@ -15,8 +15,13 @@ app = Flask(__name__)
 
 bucket= custombucket
 region= customregion
-table= employee
-
+def emp1():
+    try:
+        table= employee
+        return employee
+    except NameError:
+        return "NameError occurred. Some variable isn't defined."
+    
 db_conn = connections.Connection(
     host= customhost,
     port=3306,
